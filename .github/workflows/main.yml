@@ -1,0 +1,33 @@
+name: Build on Every Commit
+
+on:
+  push:
+    branches:
+      - main  # Runs on every commit to main branch
+      - dev   # Runs on every commit to dev branch (optional)
+
+  pull_request:
+    branches:
+      - main  # Runs when a PR is opened or updated
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js (Example for Node.js projects)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install  # Change this command as per your project
+
+      - name: Run build
+        run: npm run build  # Modify for your project's build process
+
+      - name: Run tests
+        run: npm test  # Optional: Runs tests if applicable
