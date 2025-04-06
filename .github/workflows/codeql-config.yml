@@ -1,0 +1,13 @@
+name: "Beach Cleaning Robot CodeQL Config"
+query-filters:
+  - exclude:
+      tags: 
+        - "experimental"
+        - "deprecated"
+languages: 
+  - python
+  - cpp
+paths:
+  - src/
+queries:
+  - uses: security-and-quality
